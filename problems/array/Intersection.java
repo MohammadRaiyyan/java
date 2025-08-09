@@ -1,15 +1,18 @@
 package problems.array;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Intersection {
     public static void main(String[] args) {
         int[] a = { 1, 2, 3, 3, 4, 5, 5, 6, 7, 7 };
-        int[] b = { 1, 2, 3, 4, 5, 6, 7 };
+        int[] b = { 1, 2, 3, 3, 4, 5, 5, 6, 7 };
 
-        List<Integer> result = intersectionOptimal(a, b);
-        System.out.println(result);
+        int[] result = intersectionOptimal(a, b);
+        System.out.println(Arrays.toString(result));
     }
 
     static List<Integer> intersection(int[] a, int[] b) {
@@ -32,21 +35,23 @@ public class Intersection {
         return result;
     }
 
-    static List<Integer> intersectionOptimal(int[] a, int[] b) {
-        List<Integer> result = new ArrayList<>();
-        int i = 0;
-        int j = 0;
-        while (i < a.length && j < b.length) {
-            if (a[i] < b[j]) {
-                i++;
-            } else if (b[j] > a[i]) {
-                j++;
-            } else {
-                result.add(a[i]);
-                i++;
-                j++;
+    static int[] intersectionOptimal(int[] a, int[] b) {
+        Set<Integer> set1 = new HashSet<>();
+        for (int num : a)
+            set1.add(num);
+
+        Set<Integer> result = new HashSet<>();
+        for (int num : b) {
+            if (set1.contains(num)) {
+                result.add(num);
             }
         }
-        return result;
+        int i = 0;
+        int[] resultArray = new int[result.size()];
+        for (int e : result) {
+            resultArray[i] = e;
+            i++;
+        }
+        return resultArray;
     }
 }
