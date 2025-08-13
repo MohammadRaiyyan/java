@@ -52,7 +52,7 @@ public class RearrangeBySign {
     static int[] rearrangeOptimal2(int[] nums) {
         List<Integer> positive = new ArrayList<>();
         List<Integer> negative = new ArrayList<>();
-
+        // segregate positive and negative numbers
         for (int num : nums) {
             if (num < 0) {
                 negative.add(num);
@@ -60,22 +60,28 @@ public class RearrangeBySign {
                 positive.add(num);
             }
         }
-
+        // If positive is more than negative then run loop till negative length put
+        // number from positive and negative on alternate position
         if (positive.size() > negative.size()) {
             for (int i = 0; i < negative.size(); i++) {
                 nums[2 * i] = positive.get(i);
                 nums[2 * i + 1] = negative.get(i);
             }
+            // Put remaining positive element in the end of nums if any
             int index = negative.size() * 2;
             for (int i = negative.size(); i < positive.size(); i++) {
                 nums[index] = positive.get(i);
                 index++;
             }
         } else {
+            // If negative is more than positive or equal then run loop till positive size
+            // and put elements from each on alternate position in the nums array
             for (int i = 0; i < positive.size(); i++) {
                 nums[2 * i] = positive.get(i);
                 nums[2 * i + 1] = negative.get(i);
             }
+            // If any remaining elements are left put them in the nums array at the end one
+            // by one
             int index = positive.size() * 2;
             for (int i = positive.size(); i < negative.size(); i++) {
                 nums[index] = negative.get(i);
