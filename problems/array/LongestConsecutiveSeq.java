@@ -40,7 +40,7 @@ public class LongestConsecutiveSeq {
         // can
         // be part of sequence else it will become a starter of new sequence.
         // 2. if previous number is same as current number no need to update anything,
-        // else rest count
+        // else reset count
         Arrays.sort(nums);
         int longest = 1, previousSmaller = Integer.MIN_VALUE, count = 0;
         for (int num : nums) {

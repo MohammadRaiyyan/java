@@ -1,6 +1,7 @@
 package problems.array;
 
-public class MaximumSubArraySum {
+public class LongestSubArraySumPN {
+
     public static void main(String[] args) {
         int[] nums = { -2, -3, 4, -1, -2, 1, 5, -3 };
         int result = maxSumOptimal(nums);
