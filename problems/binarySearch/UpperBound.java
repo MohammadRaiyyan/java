@@ -1,5 +1,6 @@
 package problems.binarySearch;
 
+// https://www.naukri.com/code360/problems/implement-upper-bound_8165383?leftPanelTabValue=SUBMISSION
 public class UpperBound {
     public static void main(String[] args) {
         int[] nums = { 1, 4, 6, 7, 9, 10, 12, 13, 14, 17, 18 };
