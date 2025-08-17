@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class FirstLastOccurrence {
     public static void main(String[] args) {
         int[] nums = { 2, 4, 6, 6, 8, 8, 8, 11, 13 };
-        int[] result = findOptimal(nums, 13);
+        int[] result = findBetter(nums, 13);
         System.out.println(Arrays.toString(result));
     }
 
@@ -23,7 +23,7 @@ public class FirstLastOccurrence {
         return result;
     }
 
-    static int[] findOptimal(int[] nums, int target) {
+    static int[] findBetter(int[] nums, int target) {
         int lbIdx = LowerBound.search(nums, target);
         // If lbIdx is pointing to hypothetical index which is outside of the elements
         // and if it does'nt find the actual target then it means number is not present
