@@ -38,9 +38,10 @@ public class FirstLastOccurrence {
 
     static int[] findOptimal(int[] nums, int target) {
         int first = binarySearch(nums, target, true);
-        int last = binarySearch(nums, target, false);
+        if (first == -1)
+            return new int[] { -1, -1 };
 
-        return new int[] { first, last };
+        return new int[] { first, binarySearch(nums, target, false) };
     }
 
     static int binarySearch(int[] nums, int target, boolean isFirst) {
