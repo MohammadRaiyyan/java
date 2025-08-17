@@ -10,6 +10,8 @@ public class SearchInRotatedSortedArray {
 
     // Brute force is to find it using linear search o(n)
     // We will be searching it using binary search o(log n)
+    // 1. Identity the sorted half.
+    // 2. Check if the target lies in the sorted half.
     static int search(int[] nums, int target) {
         int start = 0;
         int end = nums.length - 1;
