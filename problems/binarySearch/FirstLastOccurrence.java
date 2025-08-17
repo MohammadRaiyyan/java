@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class FirstLastOccurrence {
     public static void main(String[] args) {
         int[] nums = { 2, 4, 6, 6, 8, 8, 8, 11, 13 };
-        int[] result = findBetter(nums, 13);
+        int[] result = findOptimal(nums, 3);
         System.out.println(Arrays.toString(result));
     }
 
@@ -34,5 +34,34 @@ public class FirstLastOccurrence {
             return new int[] { -1, -1 };
         }
         return new int[] { lbIdx, UpperBound.search(nums, target) - 1 };
+    }
+
+    static int[] findOptimal(int[] nums, int target) {
+        int first = binarySearch(nums, target, true);
+        int last = binarySearch(nums, target, false);
+
+        return new int[] { first, last };
+    }
+
+    static int binarySearch(int[] nums, int target, boolean isFirst) {
+        int start = 0;
+        int end = nums.length - 1;
+        int ans = -1;
+        while (start <= end) {
+            int mid = (start + end) / 2;
+            if (nums[mid] == target) {
+                ans = mid;
+                if (isFirst) {
+                    end = mid - 1;
+                } else {
+                    start = mid + 1;
+                }
+            } else if (target > nums[mid]) {
+                start = mid + 1;
+            } else {
+                end = mid - 1;
+            }
+        }
+        return ans;
     }
 }
