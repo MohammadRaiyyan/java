@@ -28,7 +28,11 @@ public class FirstLastOccurrence {
         int ubIdx = UpperBound.search(nums, target);
 
         int[] result = { -1, -1 };
-
+        // If lbIdx is pointing to hypothetical index which is outside of the elements
+        // and if it does'nt find the actual target then it means number is not present
+        // in the list
+        // Upper bound gives the index of next element of the target element
+        // Lower bound gives the index of the target element or its next element index
         if (lbIdx == nums.length || nums[lbIdx] != target) {
             return result;
         } else {
