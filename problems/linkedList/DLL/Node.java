@@ -1,9 +1,9 @@
 package problems.linkedList.DLL;
 
-class Node<T> {
-  T data;
-  Node<T> next;
-  Node<T> back;
+public class Node<T> {
+  public T data;
+  public Node<T> next;
+  public Node<T> back;
 
   public Node(T data, Node<T> next, Node<T> back) {
     this.data = data;

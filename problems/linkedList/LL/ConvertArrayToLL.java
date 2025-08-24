@@ -15,7 +15,7 @@ public class ConvertArrayToLL {
     // System.out.println(checkIfPresent(head, 9));
   }
 
-  static Node convertToLL(int[] nums) {
+  public static Node convertToLL(int[] nums) {
     Node head = new Node(nums[0]);
     Node tail = head;
     for (int i = 1; i < nums.length; i++) {
@@ -26,7 +26,7 @@ public class ConvertArrayToLL {
     return head;
   }
 
-  static void printLLElements(Node head) {
+  public static void printLLElements(Node head) {
     Node temp = head;
     while (temp != null) {
       System.out.println(temp.data);

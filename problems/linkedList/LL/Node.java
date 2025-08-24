@@ -1,8 +1,8 @@
 package problems.linkedList.LL;
 
-class Node {
-  Integer data;
-  Node next;
+public class Node {
+  public Integer data;
+  public Node next;
 
   public Node(Integer data, Node next) {
     this.data = data;
@@ -13,5 +13,4 @@ class Node {
     this.data = data;
     this.next = null;
   }
-
 }
